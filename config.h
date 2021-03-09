@@ -4,6 +4,7 @@
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "RobotoMono:pixelsize=14:antialias=true:autohint=true" };
 static const char norm_fg[]         = "#d6a6c4";
@@ -21,8 +22,6 @@ static const char *colors[][3]      = {
 /* tagging */
 static const char *tags[] = { " ☰ ", " ☲ ", " ☱ ", " ☴ ", " ☵ ", " ☶ ", " ☳ ", " ☷ ", " ☰ " };
 
-#ifndef DESKTOP
-static const int showbar            = 0;        /* 0 means no bar */
 static const Rule rules[] = {
 	/* xprop(1):
 	 *   WM_CLASS(STRING) = instance, class
@@ -33,53 +32,18 @@ static const Rule rules[] = {
 	{ "pop-up",                    NULL,             NULL,    0,          0,            1,           -1 },
 	{ "task-dialog",               NULL,             NULL,    0,          0,            1,           -1 },
 
-	{ "sun-awt-X11-XDialogPeer",   NULL,             NULL,    1 << 2,     1 << 0,       0,           0  },
-	{ "jetbrains-idea",            NULL,             NULL,    1 << 2,     1 << 0,       0,           0  },
-	{ "tabbed",                    "term",           NULL,    1 << 1,     1 << 0,       0,           1  },
-	{ "Firefox",                   NULL,             NULL,    1 << 0,     1 << 0,       0,           2  },
-	{ "st-256color",               "rangerterm",     NULL,    1 << 3,     1 << 1,       0,           0  },
-	{ "st-256color",               "nnnterm",        NULL,    1 << 3,     1 << 1,       0,           0  },
-	{ "st-256color",               "tmuxterm",       NULL,    1 << 3,     1 << 1,       0,           0  },
-	{ "Slack",                     NULL,             NULL,    1 << 5,     1 << 1,       0,           1  },
-	{ "st-256color",               "rtorrentterm",   NULL,    1 << 4,     1 << 1,       0,           1  },
-	{ "st-256color",               "htopterm",       NULL,    1 << 4,     1 << 1,       0,           1  },
-	{ "st-256color",               "anotherterm",    NULL,    1 << 4,     1 << 1,       0,           1  },
-	{ "Spotify",                   NULL,             NULL,    1 << 6,     1 << 2,       0,           0  },
-	{ "Chromium",                  NULL,             NULL,    1 << 7,     1 << 2,       0,           1  },
-	{ "tabbed",                    "tabbed-surf",    NULL,    1 << 7,     1 << 2,       0,           1  },
-	{ "Postman",                   NULL,             NULL,    1 << 8,     1 << 2,       0,           2  },
+	{ "firefoxdeveloperedition",   NULL,             NULL,    1 << 0,     1 << 0,       0,           1  },
+	{ "sun-awt-X11-XDialogPeer",   NULL,             NULL,    1 << 2,     1 << 1,       0,           1  },
+	{ "jetbrains-idea",            NULL,             NULL,    1 << 2,     1 << 1,       0,           1  },
+	{ "st-256color",               "nnnterm",        NULL,    1 << 1,     1 << 1,       0,           0  },
+	{ "st-256color",               "tmuxterm",       NULL,    1 << 1,     1 << 1,       0,           0  },
+	{ "Slack",                     NULL,             NULL,    1 << 3,     1 << 2,       0,           0  },
+	{ "Chromium",                  NULL,             NULL,    1 << 5,     1 << 3,       0,           1  },
+	{ "Postman",                   NULL,             NULL,    1 << 5,     1 << 3,       0,           1  },
+	{ "st-256color",               "rtorrentterm",   NULL,    1 << 4,     1 << 3,       0,           0  },
+	{ "st-256color",               "sptterm",        NULL,    1 << 4,     1 << 3,       0,           0  },
+  { "qBittorrent",               "qbittorrent",    NULL,    1 << 3,     1 << 3,       0,           0  },
 };
-#else
-static const int showbar            = 1;        /* 0 means no bar */
-static const Rule rules[] = {
-	/* xprop(1):
-	 *   WM_CLASS(STRING) = instance, class
-	 *   WM_NAME(STRING) = title
-	 */
-	/* class                       instance           title    tags mask     mtags mask  isfloating   monitor */
-  { "dialog",                    NULL,              NULL,    0,            0,          1,           -1 },
-  { "pop-up",                    NULL,              NULL,    0,            0,          1,           -1 },
-  { "task-dialog",               NULL,              NULL,    0,            0,          1,           -1 },
-
-  { "sun-awt-X11-XDialogPeer",   NULL,              NULL,    1 << 1,       1 << 1,     0,           1  },
-  { "jetbrains-idea",            NULL,              NULL,    1 << 1,       1 << 1,     0,           1  },
-  { "tabbed",                    "term",            NULL,    1 << 0,       1 << 0,     0,           1  },
-  { "Firefox",                   NULL,              NULL,    1 << 0,       1 << 0,     0,           0  },
-  { "qBittorrent",               "qbittorrent",     NULL,    1 << 3,       1 << 3,     0,           0  },
-  { "st-256color",               "rangerterm",      NULL,    1 << 1,       1 << 1,     0,           0  },
-  { "st-256color",               "nnnterm",         NULL,    1 << 1,       1 << 1,     0,           0  },
-  { "st-256color",               "tmuxterm",        NULL,    1 << 1,       1 << 1,     0,           0  },
-  { "Slack",                     NULL,              NULL,    1 << 2,       1 << 2,     0,           0  },
-  { "Microsoft Teams - Preview", NULL,              NULL,    1 << 2,       1 << 2,     0,           0  },
-  { "st-256color",               "rtorrentterm",    NULL,    1 << 2,       1 << 2,     0,           1  },
-  { "st-256color",               "htopterm",        NULL,    1 << 2,       1 << 2,     0,           1  },
-  { "st-256color",               "anotherterm",     NULL,    1 << 2,       1 << 2,     0,           1  },
-  { "Spotify",                   NULL,              NULL,    1 << 3,       1 << 3,     0,           0  },
-  { "Chromium",                  NULL,              NULL,    1 << 1,       1 << 1,     0,           1  },
-  { "tabbed",                    "tabbed-surf",     NULL,    1 << 1,       1 << 1,     0,           1  },
-  { "Postman",                   NULL,              NULL,    1 << 3,       1 << 3,     0,           1  },
-};
-#endif
 
 /* layout(s) */
 static const float mfact     = 0.5; /* factor of master area size [0.05..0.95] */
@@ -124,7 +88,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_r,            setmfact,       {.f =  0.00} },
 	{ MODKEY,                       XK_backslash,    zoom,           {0} },
-	{ MODKEY,                       XK_Tab,          view,           {0} },
 	{ MODKEY,                       XK_BackSpace,    view,           {0} },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
 	{ MODKEY,                       XK_bracketleft,  killclient,     {0} },
