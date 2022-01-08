@@ -22,7 +22,7 @@ index 68b295d..e38a019 100644
 -       ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
 +enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkClientWin,
 +       ClkRootWin, ClkLast }; /* clicks */
- 
+
  typedef union {
  	int i;
 @@ -464,10 +464,8 @@ buttonpress(XEvent *e)
@@ -39,7 +39,7 @@ index 68b295d..e38a019 100644
  		restack(selmon);
 @@ -772,15 +770,8 @@ drawbar(Monitor *m)
  	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
- 
+
  	if ((w = m->ww - tw - x) > bh) {
 -		if (m->sel) {
 -			drw_setscheme(drw, scheme[m == selmon ? SchemeSel : SchemeNorm]);

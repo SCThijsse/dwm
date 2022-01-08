@@ -1,19 +1,19 @@
 diff --git a/config.def.h b/config.def.h
-index 9c9f90f..119f8b7 100644
+index 119f8b7..e2fb00b 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -27,9 +27,9 @@ static const Rule rules[] = {
  	 *	WM_CLASS(STRING) = instance, class
  	 *	WM_NAME(STRING) = title
  	 */
--	/* class      instance    title       tags mask     isfloating   monitor */
--	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
--	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+-	/* class      instance    title       tags mask   isfloating   monitor */
+-	{ "Gimp",     NULL,       NULL,       0,          1,           -1 },
+-	{ "Firefox",  NULL,       NULL,       1 << 8,     0,           -1 },
 +	/* class      instance    title       tags mask   mtags mask   isfloating   monitor */
 +	{ "Gimp",     NULL,       NULL,       0,          0            1,           -1 },
 +	{ "Firefox",  NULL,       NULL,       1 << 8,     i << 0       0,           -1 },
  };
- 
+
  /* layout(s) */
 diff --git a/dwm.c b/dwm.c
 index 1f3e3d0..c2c6990 100644
