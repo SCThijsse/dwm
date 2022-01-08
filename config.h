@@ -7,12 +7,12 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "RobotoMono:pixelsize=14:antialias=true:autohint=true" };
-static const char norm_fg[]         = "#d6a6c4";
-static const char norm_bg[]         = "#0e1d26";
-static const char norm_border[]     = "#0e1d26";
-static const char sel_fg[]          = "#d6a6c4";
-static const char sel_bg[]          = "#ac414b";
-static const char sel_border[]      = "#ac414b";
+static const char norm_fg[]         = "#e0def4";
+static const char norm_bg[]         = "#191724";
+static const char norm_border[]     = "#191724";
+static const char sel_fg[]          = "#191724";
+static const char sel_bg[]          = "#eb6f92";
+static const char sel_border[]      = "#eb6f92";
 static const char *colors[][3]      = {
   /*               fg           bg         border      */
   [SchemeNorm] = { norm_fg,     norm_bg,   norm_border },
