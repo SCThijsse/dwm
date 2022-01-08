@@ -1,5 +1,5 @@
 diff --git a/config.def.h b/config.def.h
-index 19330cd..ccff954 100644
+index eac20b4..9c9f90f 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -2,6 +2,7 @@
@@ -11,7 +11,7 @@ index 19330cd..ccff954 100644
  static const int showbar            = 1;        /* 0 means no bar */
  static const int topbar             = 1;        /* 0 means bottom bar */
 diff --git a/dwm.c b/dwm.c
-index 9a01c1d..a51089c 100644
+index e38a019..ccb754f 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -120,6 +120,7 @@ struct Monitor {
@@ -30,7 +30,7 @@ index 9a01c1d..a51089c 100644
  	m->lt[0] = &layouts[0];
  	m->lt[1] = &layouts[1 % LENGTH(layouts)];
  	strncpy(m->ltsymbol, layouts[0].symbol, sizeof m->ltsymbol);
-@@ -1134,16 +1136,11 @@ maprequest(XEvent *e)
+@@ -1137,16 +1139,11 @@ maprequest(XEvent *e)
  void
  monocle(Monitor *m)
  {
@@ -49,7 +49,7 @@ index 9a01c1d..a51089c 100644
  }
  
  void
-@@ -1711,18 +1708,18 @@ tile(Monitor *m)
+@@ -1714,18 +1711,18 @@ tile(Monitor *m)
  	if (n > m->nmaster)
  		mw = m->nmaster ? m->ww * m->mfact : 0;
  	else

@@ -1,5 +1,5 @@
 diff --git a/dwm.c b/dwm.c
-index 061d2c6..18fb358 100644
+index c72c410..1f3e3d0 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -167,6 +167,7 @@ static void detachstack(Client *c);
@@ -28,7 +28,7 @@ index 061d2c6..18fb358 100644
  		free(scheme[i]);
  	XDestroyWindow(dpy, wmcheckwin);
  	drw_free(drw);
-@@ -737,20 +738,124 @@ dirtomon(int dir)
+@@ -737,12 +738,118 @@ dirtomon(int dir)
  	return m;
  }
  
@@ -127,7 +127,7 @@ index 061d2c6..18fb358 100644
 +			i=-1;
 +			isCode = 0;
 +		}
-+	}
++}
 +
 +	if (!isCode) {
 +		w = TEXTW(text) - lrpad;
@@ -149,6 +149,9 @@ index 061d2c6..18fb358 100644
  	unsigned int i, occ = 0, urg = 0;
  	Client *c;
  
+@@ -750,10 +857,8 @@ drawbar(Monitor *m)
+ 		return;
+ 
  	/* draw status first so it can be overdrawn by tags later */
 -	if (m == selmon) { /* status is only drawn on selected monitor */
 -		drw_setscheme(drw, scheme[SchemeNorm]);
@@ -159,7 +162,7 @@ index 061d2c6..18fb358 100644
  	}
  
  	for (c = m->clients; c; c = c->next) {
-@@ -766,7 +871,7 @@ drawbar(Monitor *m)
+@@ -769,7 +874,7 @@ drawbar(Monitor *m)
  
  		w = TEXTW(tags[i]);
  		drw_setscheme(drw, scheme[m->tagset[m->seltags] & 1 << i ? SchemeSel : SchemeNorm]);
@@ -168,7 +171,7 @@ index 061d2c6..18fb358 100644
  		x += w;
  	}
  	w = blw = TEXTW(m->ltsymbol);
-@@ -1582,7 +1687,7 @@ setup(void)
+@@ -1585,7 +1690,7 @@ setup(void)
  	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
  		die("no fonts could be loaded.");
  	lrpad = drw->fonts->h;
@@ -177,7 +180,7 @@ index 061d2c6..18fb358 100644
  	updategeom();
  	/* init atoms */
  	utf8string = XInternAtom(dpy, "UTF8_STRING", False);
-@@ -1604,7 +1709,8 @@ setup(void)
+@@ -1607,7 +1712,8 @@ setup(void)
  	cursor[CurResize] = drw_cur_create(drw, XC_sizing);
  	cursor[CurMove] = drw_cur_create(drw, XC_fleur);
  	/* init appearance */
@@ -187,7 +190,7 @@ index 061d2c6..18fb358 100644
  	for (i = 0; i < LENGTH(colors); i++)
  		scheme[i] = drw_scm_create(drw, colors[i], 3);
  	/* init bars */
-@@ -2050,9 +2156,11 @@ updatesizehints(Client *c)
+@@ -2053,9 +2159,11 @@ updatesizehints(Client *c)
  void
  updatestatus(void)
  {

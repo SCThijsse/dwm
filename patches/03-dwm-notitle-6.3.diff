@@ -1,8 +1,8 @@
 diff --git a/config.def.h b/config.def.h
-index 1c0b587..19330cd 100644
+index a2ac963..eac20b4 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -102,7 +102,6 @@ static Button buttons[] = {
+@@ -103,7 +103,6 @@ static Button buttons[] = {
  	/* click                event mask      button          function        argument */
  	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
  	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
@@ -11,7 +11,7 @@ index 1c0b587..19330cd 100644
  	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
  	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 diff --git a/dwm.c b/dwm.c
-index b5f8211..9a01c1d 100644
+index 68b295d..e38a019 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -64,8 +64,8 @@ enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
@@ -29,7 +29,7 @@ index b5f8211..9a01c1d 100644
  			arg.ui = 1 << i;
  		} else if (ev->x < x + blw)
  			click = ClkLtSymbol;
--		else if (ev->x > selmon->ww - TEXTW(stext))
+-		else if (ev->x > selmon->ww - (int)TEXTW(stext))
 -			click = ClkStatusText;
  		else
 -			click = ClkWinTitle;
@@ -37,7 +37,7 @@ index b5f8211..9a01c1d 100644
  	} else if ((c = wintoclient(ev->window))) {
  		focus(c);
  		restack(selmon);
-@@ -769,15 +767,8 @@ drawbar(Monitor *m)
+@@ -772,15 +770,8 @@ drawbar(Monitor *m)
  	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
  
  	if ((w = m->ww - tw - x) > bh) {
@@ -55,7 +55,7 @@ index b5f8211..9a01c1d 100644
  	}
  	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
  }
-@@ -1275,11 +1266,8 @@ propertynotify(XEvent *e)
+@@ -1278,11 +1269,8 @@ propertynotify(XEvent *e)
  			drawbars();
  			break;
  		}

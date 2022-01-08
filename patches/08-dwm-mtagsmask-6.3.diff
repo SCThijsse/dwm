@@ -1,5 +1,5 @@
 diff --git a/config.def.h b/config.def.h
-index ccff954..75efd86 100644
+index 9c9f90f..119f8b7 100644
 --- a/config.def.h
 +++ b/config.def.h
 @@ -27,9 +27,9 @@ static const Rule rules[] = {
@@ -16,7 +16,7 @@ index ccff954..75efd86 100644
  
  /* layout(s) */
 diff --git a/dwm.c b/dwm.c
-index a9794c8..708d318 100644
+index 1f3e3d0..c2c6990 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -140,6 +140,7 @@ typedef struct {
