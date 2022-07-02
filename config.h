@@ -6,13 +6,13 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "RobotoMono:pixelsize=14:antialias=true:autohint=true" };
-static const char norm_fg[]         = "#e0def4";
-static const char norm_bg[]         = "#191724";
-static const char norm_border[]     = "#191724";
-static const char sel_fg[]          = "#191724";
-static const char sel_bg[]          = "#eb6f92";
-static const char sel_border[]      = "#eb6f92";
+static const char *fonts[]          = { "RobotoMono Nerd Font:pixelsize=14:antialias=true:autohint=true" };
+static const char norm_fg[]         = "#D9E0EE";
+static const char norm_bg[]         = "#1E1E2E";
+static const char norm_border[]     = "#1E1E2E";
+static const char sel_fg[]          = "#1E1E2E";
+static const char sel_bg[]          = "#96CDFB";
+static const char sel_border[]      = "#96CDFB";
 static const char *colors[][3]      = {
   /*               fg           bg         border      */
   [SchemeNorm] = { norm_fg,     norm_bg,   norm_border },
@@ -32,17 +32,17 @@ static const Rule rules[] = {
 	{ "pop-up",                    NULL,             NULL,    0,          0,            1,           -1 },
 	{ "task-dialog",               NULL,             NULL,    0,          0,            1,           -1 },
 
-	{ "firefoxdeveloperedition",   NULL,             NULL,    1 << 0,     1 << 0,       0,           1  },
-	{ "sun-awt-X11-XDialogPeer",   NULL,             NULL,    1 << 2,     1 << 1,       0,           1  },
-	{ "jetbrains-idea",            NULL,             NULL,    1 << 2,     1 << 1,       0,           1  },
-	{ "st-256color",               "nnnterm",        NULL,    1 << 1,     1 << 1,       0,           0  },
-	{ "st-256color",               "tmuxterm",       NULL,    1 << 1,     1 << 1,       0,           0  },
-	{ "Slack",                     NULL,             NULL,    1 << 3,     1 << 2,       0,           0  },
-	{ "Chromium",                  NULL,             NULL,    1 << 5,     1 << 3,       0,           1  },
-	{ "Postman",                   NULL,             NULL,    1 << 5,     1 << 3,       0,           1  },
-	{ "st-256color",               "rtorrentterm",   NULL,    1 << 4,     1 << 3,       0,           0  },
-	{ "st-256color",               "sptterm",        NULL,    1 << 4,     1 << 3,       0,           0  },
-  { "qBittorrent",               "qbittorrent",    NULL,    1 << 3,     1 << 3,       0,           0  },
+	{ "firefoxdeveloperedition",   NULL,             NULL,    1 << 0,     1 << 0,       0,           0  },
+	{ "sun-awt-X11-XDialogPeer",   NULL,             NULL,    1 << 1,     1 << 1,       0,           0  },
+	{ "jetbrains-idea",            NULL,             NULL,    1 << 1,     1 << 1,       0,           0  },
+	{ "st-256color",               "nnnterm",        NULL,    1 << 2,     1 << 0,       0,           2  },
+	{ "st-256color",               "tmuxterm",       NULL,    1 << 2,     1 << 0,       0,           2  },
+	{ "Slack",                     NULL,             NULL,    1 << 3,     1 << 1,       0,           2  },
+	{ "Google-chrome",             NULL,             NULL,    1 << 5,     1 << 0,       0,           1  },
+	{ "Postman",                   NULL,             NULL,    1 << 5,     1 << 1,       0,           1  },
+	{ "st-256color",               "rtorrentterm",   NULL,    1 << 4,     1 << 2,       0,           2  },
+	{ "st-256color",               "sptterm",        NULL,    1 << 4,     1 << 2,       0,           2  },
+	{ "qBittorrent",               "qBittorrent",    NULL,    1 << 3,     1 << 2,       0,           2  },
 };
 
 /* layout(s) */
@@ -88,6 +88,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_r,            setmfact,       {.f =  0.00} },
+
 	{ MODKEY,                       XK_backslash,    zoom,           {0} },
 	{ MODKEY,                       XK_BackSpace,    view,           {0} },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
