@@ -43,6 +43,7 @@ static const Rule rules[] = {
 	{ "st-256color",               "rtorrentterm",   NULL,    1 << 4,     1 << 2,       0,           2  },
 	{ "st-256color",               "sptterm",        NULL,    1 << 4,     1 << 2,       0,           2  },
 	{ "qBittorrent",               "qBittorrent",    NULL,    1 << 3,     1 << 2,       0,           2  },
+	{ "KeePass2",                  NULL,             NULL,    1 << 6,     1 << 3,       0,           2  },
 };
 
 /* layout(s) */
